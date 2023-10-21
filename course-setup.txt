@@ -1,0 +1,4 @@
+1) Install pyenv
+2) Install second version of python (3.8)
+
+
