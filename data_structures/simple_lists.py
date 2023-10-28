@@ -36,3 +36,14 @@ names.pop(3)
 
 # Print all names in list
 print(names)
+
+# Search for values using if statements
+if "Celia" in names:
+    print ("Celia is in the list")
+else:
+    print ("Celia not in the list")
+
+if "Robert" not in names:
+    print ("Robert is not in the list")
+else:
+    print ("Robert is in the list")
