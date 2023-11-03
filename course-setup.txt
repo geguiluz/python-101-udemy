@@ -11,4 +11,7 @@ pip install delorean
 4) Write our dependancies to a requirements file
 pip freeze > requirements.txt
 
+# ------------- Install from requirements file -----------
+pip install -r requirements.txt
+
 # =============  =================
