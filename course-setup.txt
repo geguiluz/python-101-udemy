@@ -1,4 +1,14 @@
 1) Install pyenv
 2) Install second version of python (3.8)
 
+# ============= Virtual environment setup =================
+1) Create environment
+python -m venv env
+2) Activate
+source env/bin/activate
+3) Install our dependencies (delorean used as an example)
+pip install delorean
+4) Write our dependancies to a requirements file
+pip freeze > requirements.txt
 
+# =============  =================
