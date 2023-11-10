@@ -8,7 +8,8 @@ json_path = os.path.join(dir_path, 'user.json')
 user = {
     'name':'Mike',
     'age': 56,
-    'is_active': [1, 6, 3, 8, 4],
+    'is_active': True,
+    'fav_nums': [1, 6, 3, 8, 4],
 }
 
 with open(json_path, 'w') as jf:
