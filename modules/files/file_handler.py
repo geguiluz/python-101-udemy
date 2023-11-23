@@ -8,7 +8,6 @@ def _set_dir_path(sub_dir: str):
     """
     # Get current working directory
     base_dir = os.getcwd()
-    sub_dir = "output"
     full_dir_path = os.path.join(base_dir, sub_dir)
     print(full_dir_path)
     return full_dir_path
@@ -28,7 +27,7 @@ def write_file(
     w: Overrides existing content
     a: Appends to existing contents (same line)
 
-    If we want to add content in the sa,e line, we must add argument
+    If we want to add content in the same line, we must add argument
     end_with_return="False" otherwise new line defaults to True.
     """
     full_dir_path = _set_dir_path(sub_dir)
@@ -47,11 +46,11 @@ def write_file(
     with open(file_path, mode) as msg_file:
         msg_file.write(contents + line_end)
 
-def open_file(
-    file_name: str,
-    sub_dir: str
-    ):
 
+def open_file(file_name: str, sub_dir: str):
+    """
+    Opens a file with a given file_name inside sub_dir under cwd.
+    """
     full_dir_path = _set_dir_path(sub_dir)
     file_path = os.path.join(full_dir_path, file_name)
 
