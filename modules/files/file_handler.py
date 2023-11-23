@@ -46,3 +46,18 @@ def write_file(
     # Create file
     with open(file_path, mode) as msg_file:
         msg_file.write(contents + line_end)
+
+def open_file(
+    file_name: str,
+    sub_dir: str,
+    contents: any,
+    end_with_return: bool = "True",
+    ):
+
+    full_dir_path = _set_dir_path(sub_dir)
+    file_path = os.path.join(full_dir_path, file_name)
+
+    # Here we're reading the contents of the file and saving it to a variable 'msg'
+    with open(file_path) as msg_file:
+        msg = msg_file.read()
+        return msg
