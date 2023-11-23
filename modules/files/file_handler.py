@@ -49,9 +49,7 @@ def write_file(
 
 def open_file(
     file_name: str,
-    sub_dir: str,
-    contents: any,
-    end_with_return: bool = "True",
+    sub_dir: str
     ):
 
     full_dir_path = _set_dir_path(sub_dir)
