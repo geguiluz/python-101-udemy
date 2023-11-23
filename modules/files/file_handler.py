@@ -1,4 +1,5 @@
 import os
+import json
 
 
 def _set_dir_path(sub_dir: str):
@@ -11,6 +12,15 @@ def _set_dir_path(sub_dir: str):
     full_dir_path = os.path.join(base_dir, sub_dir)
     print(full_dir_path)
     return full_dir_path
+
+
+def gen_full_file_path(file_name: str, sub_dir: str):
+    """Returns full file path and file name"""
+    full_dir_path = _set_dir_path(sub_dir)
+    os.makedirs(full_dir_path, exist_ok=True)
+    # function os.path.join() creates the full path with our filename
+    file_path = os.path.join(full_dir_path, file_name)
+    return file_path
 
 
 def write_file(
@@ -30,11 +40,8 @@ def write_file(
     If we want to add content in the same line, we must add argument
     end_with_return="False" otherwise new line defaults to True.
     """
-    full_dir_path = _set_dir_path(sub_dir)
-    os.makedirs(full_dir_path, exist_ok=True)
 
-    # function os.path.join() creates the full path with our filename
-    file_path = os.path.join(full_dir_path, file_name)
+    file_path = gen_full_file_path(file_name, sub_dir)
 
     # Set line end
     if end_with_return:
@@ -51,10 +58,22 @@ def open_file(file_name: str, sub_dir: str):
     """
     Opens a file with a given file_name inside sub_dir under cwd.
     """
-    full_dir_path = _set_dir_path(sub_dir)
-    file_path = os.path.join(full_dir_path, file_name)
+    file_path = gen_full_file_path(file_name, sub_dir)
 
     # Here we're reading the contents of the file and saving it to a variable 'msg'
     with open(file_path) as msg_file:
         msg = msg_file.read()
-        return msg
+        print(msg)
+    return msg
+
+
+def open_json_file(file_name: str, sub_dir: str):
+    """
+    Opens a file with a given file_name inside sub_dir under cwd.
+    """
+    file_path = gen_full_file_path(file_name, sub_dir)
+
+    with open(file_path) as f:
+        # load() converts a json file to a dictionary
+        json_data = json.load(f)
+    return json_data
